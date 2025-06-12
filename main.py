@@ -53,7 +53,7 @@ def get_movies():
     result = db.query(MovieModel).all()
     return JSONResponse(content=jsonable_encoder(result), status_code=200)
 
-@app.get("/movies/{id}", tags=["Movies"], dependencies=[Depends(JWTBearer())])
+@app.get("/movies/{id}", tags=["Movies hell yeah"], dependencies=[Depends(JWTBearer())])
 def get_movie(id: int = Path(ge=1, le=2100)):
     db = Session()
     result = db.query(MovieModel).filter(MovieModel.id == id).first()
